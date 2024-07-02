@@ -128,8 +128,8 @@ export class EmbeddedWorkflowStart extends LitElement {
         console.log(programIDsOriginal);
         const submitBody = {
                 "startData": {
-                    "se_departmentidsoriginal": departmentIdsArray,
-                    "se_programidsoriginal": programIDsOriginal,
+                    "se_departmentidsoriginal": this.departmentIDsOriginal,
+                    "se_programidsoriginal": this.programIDsOriginal,
                     "se_pronouns": this.userPronouns,
                     "se_departmentids": this.departmentIDsNew,
                     "se_programids1": this.programIDsNew,
