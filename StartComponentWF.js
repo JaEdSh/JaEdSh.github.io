@@ -142,7 +142,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 }
         }
 
-        console.log(submitBod);
+        console.log(submitBody);
         //Start the workflow
             const submit = await fetch( this.nintexAPIURL + this.workflowID + '/instances?token=' + this.nintexAPIKey,
             {
