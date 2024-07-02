@@ -115,7 +115,6 @@ export class EmbeddedWorkflowStart extends LitElement {
         };
         const event = new CustomEvent('ntx-value-change', args);
         this.dispatchEvent(event);
-        if (this.EnableLog == true) { console.log('e = ' + e); }
     }
 
     async load() {
