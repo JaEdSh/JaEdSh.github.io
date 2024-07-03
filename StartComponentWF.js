@@ -90,6 +90,12 @@ export class EmbeddedWorkflowStart extends LitElement {
                     isValueField: true,
                 }
             },
+            //Triggers an event that the Nintex form can handle
+            events: ["ntx-value-change"],
+            standardProperties: {
+                readOnly: true,
+                description: true,
+            }
         };
     }
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
@@ -150,7 +156,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             //Wait for api response
             const jsonSubmit = await submit.json();
             console.log(jsonSubmit); 
-            console.log(jsonSubmit.result.id);
+            console.log(jsonSubmit.id);
             this.onChange(jsonSubmit);
     }
 
