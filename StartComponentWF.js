@@ -103,9 +103,11 @@ export class EmbeddedWorkflowStart extends LitElement {
         if (changedProperties.has('startRun')) {
             console.log(changedProperties);
             //Only runs if form control is true
-            if (this.startRun == true){
-                console.log("executing");
-                this.load();
+            if (this.startRun != null){
+                if (this.startRun == true){
+                    console.log("executing");
+                    this.load();
+                }
             }
         }
     }
@@ -133,8 +135,8 @@ export class EmbeddedWorkflowStart extends LitElement {
         console.log(programIDsOriginal);
         const submitBody = {
                 "startData": {
-                    "se_departmentidsoriginal": departmentIdsArray,
-                    "se_programidsoriginal": programIDsOriginal,
+                    "se_departmentidsoriginal": this.departmentIDsOriginal,
+                    "se_programidsoriginal": this.programIDsOriginal,
                     "se_pronouns": this.userPronouns,
                     "se_departmentids": this.departmentIDsNew,
                     "se_programids1": this.programIDsNew,
@@ -156,7 +158,6 @@ export class EmbeddedWorkflowStart extends LitElement {
             //Wait for api response
             const jsonSubmit = await submit.json();
             console.log(jsonSubmit); 
-            console.log(jsonSubmit.id);
             this.onChange(jsonSubmit);
     }
 
