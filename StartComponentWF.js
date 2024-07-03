@@ -122,7 +122,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             bubbles: true,
             cancelable: false,
             composed: true,
-            detail: e,
+            detail: this.value,
         };
         const event = new CustomEvent('ntx-value-change', args);
         this.dispatchEvent(event);
@@ -130,12 +130,12 @@ export class EmbeddedWorkflowStart extends LitElement {
 
     async load() {
         //Create the body for starting the workflow
-        const departmentIdsArray = JSON.parse(this.departmentIDsOriginal);
-        const programIDsOriginal = JSON.parse(this.programIDsOriginal);
+        //const departmentIdsArray = JSON.parse(this.departmentIDsOriginal);
+        //const programIDsOriginal = JSON.parse(this.programIDsOriginal);
         console.log(this.departmentIDsOriginal);
         console.log(this.programIDsOriginal);
-        console.log(departmentIdsArray);
-        console.log(programIDsOriginal);
+        //console.log(departmentIdsArray);
+        //console.log(programIDsOriginal);
         const submitBody = {
                 "startData": {
                     "se_departmentidsoriginal": this.departmentIDsOriginal,
