@@ -102,6 +102,7 @@ export class EmbeddedWorkflowStart extends LitElement {
     updated(changedProperties) {
         if (changedProperties.has('startRun')) {
             console.log(changedProperties);
+            console.log('this');
             console.log(changedProperties.startRun);
             //Only runs if form control is true
             if (this.startRun != null){
