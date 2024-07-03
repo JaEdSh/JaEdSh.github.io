@@ -130,16 +130,20 @@ export class EmbeddedWorkflowStart extends LitElement {
 
     async load() {
         //Create the body for starting the workflow
+        const departmentIdsOrig = [];
+        const programIDsOrig = [];
+        if (this.departmentIDsOriginal != null){departmentIdsOrig = JSON.parse(this.departmentIDsOriginal);}
+        if (this.programIDsOriginal != null){programIDsOrig = JSON.parse(this.programIDsOriginal);}
         //const departmentIdsArray = JSON.parse(this.departmentIDsOriginal);
         //const programIDsOriginal = JSON.parse(this.programIDsOriginal);
         console.log(this.departmentIDsOriginal);
-        console.log(this.programIDsOriginal);
-        //console.log(departmentIdsArray);
-        //console.log(programIDsOriginal);
+        console.log(this.programIDsOrig);
+        console.log(departmentIdsOrig);
+        console.log(programIDsOrig);
         const submitBody = {
                 "startData": {
-                    "se_departmentidsoriginal": this.departmentIDsOriginal,
-                    "se_programidsoriginal": this.programIDsOriginal,
+                    "se_departmentidsoriginal": departmentIdsOrig,
+                    "se_programidsoriginal": programIDsOrig,
                     "se_pronouns": this.userPronouns,
                     "se_departmentids": this.departmentIDsNew,
                     "se_programids1": this.programIDsNew,
@@ -157,6 +161,9 @@ export class EmbeddedWorkflowStart extends LitElement {
             const submit = await fetch( this.nintexAPIURL + this.workflowID + '/instances?token=' + this.nintexAPIKey,
             {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(submitBody)});
             //Wait for api response
             const jsonSubmit = await submit.json();
