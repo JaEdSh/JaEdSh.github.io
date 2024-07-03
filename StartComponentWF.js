@@ -2,11 +2,10 @@ import {css, html, LitElement, styleMap, until} from 'https://cdn.jsdelivr.net/g
 
 export class EmbeddedWorkflowStart extends LitElement {
     
-    static get properties() {
-        return {
-            startRun: { type: Boolean },
-            value: { type: String }
-          };
+    
+    static properties = {
+        startRun: { type: Boolean },
+        value: { type: String }
     }
     
     static getMetaConfig() {
@@ -37,7 +36,8 @@ export class EmbeddedWorkflowStart extends LitElement {
                 },
                 nintexAPIKey: {
                     type: 'string',
-                    title: 'API Key'
+                    title: 'API Key',
+                    required: ['true']
                 },
                 userEmail: {
                     type: 'string',
