@@ -14,7 +14,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             controlName: 'Start Workflow',
             fallbackDisableSubmit: false,
             description: 'Connects to the Nintex API to start a workflow',
-            iconUrl: "pen",
+            iconUrl: "one-line-text",
             groupName: 'Custom Controls',
             version: '1.4',
             //This holds all the parameters that are entered into the control.
@@ -101,9 +101,7 @@ export class EmbeddedWorkflowStart extends LitElement {
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
     updated(changedProperties) {
         if (changedProperties.has('startRun')) {
-            console.log(changedProperties);
-            console.log('this');
-            console.log(changedProperties.startRun);
+            console.log("startRun = " + changedProperties.startRun);
             //Only runs if form control is true
             if (this.startRun != null){
                 console.log(this.startRun);
@@ -122,7 +120,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             bubbles: true,
             cancelable: false,
             composed: true,
-            detail: this.value,
+            detail: e,
         };
         const event = new CustomEvent('ntx-value-change', args);
         this.dispatchEvent(event);
@@ -130,7 +128,7 @@ export class EmbeddedWorkflowStart extends LitElement {
 
     async load() {
         //Create the body for starting the workflow
-        const departmentIdsOrig = [];
+        /*const departmentIdsOrig = [];
         const programIDsOrig = [];
         if (this.departmentIDsOriginal != null){departmentIdsOrig = JSON.parse(this.departmentIDsOriginal);}
         if (this.programIDsOriginal != null){programIDsOrig = JSON.parse(this.programIDsOriginal);}
@@ -139,14 +137,14 @@ export class EmbeddedWorkflowStart extends LitElement {
         console.log(this.departmentIDsOriginal);
         console.log(this.programIDsOrig);
         console.log(departmentIdsOrig);
-        console.log(programIDsOrig);
+        console.log(programIDsOrig);*/
         const submitBody = {
                 "startData": {
-                    "se_departmentidsoriginal": departmentIdsOrig,
-                    "se_programidsoriginal": programIDsOrig,
-                    "se_pronouns": this.userPronouns,
-                    "se_departmentids": this.departmentIDsNew,
-                    "se_programids1": this.programIDsNew,
+                    "se_departmentidsoriginal": this.departmentIDsOriginal,
+                    "se_programidsoriginal": this.programIDsOriginal,
+                    "se_pronouns1": this.userPronouns,
+                    "se_departmentids1": this.departmentIDsNew,
+                    "se_programids12": this.programIDsNew,
                     "se_useremail": this.userEmail,
                     "se_usertype": this.userType,
                     "se_phonenumber": this.phoneNumber,
