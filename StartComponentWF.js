@@ -102,8 +102,10 @@ export class EmbeddedWorkflowStart extends LitElement {
     updated(changedProperties) {
         if (changedProperties.has('startRun')) {
             console.log(changedProperties);
+            console.log(changedProperties.startRun);
             //Only runs if form control is true
             if (this.startRun != null){
+                console.log(this.startRun);
                 if (this.startRun == true){
                     console.log("executing");
                     this.load();
@@ -158,7 +160,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             //Wait for api response
             const jsonSubmit = await submit.json();
             console.log(jsonSubmit); 
-            this.onChange(jsonSubmit);
+            this.onChange(jsonSubmit.id);
     }
 
     constructor() {
