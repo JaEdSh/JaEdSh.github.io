@@ -95,7 +95,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         };
     }
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
-    /*updated(changedProperties) {
+    updated(changedProperties) {
         if (changedProperties.has('startRun')) {
             console.log("properties startRun = " + changedProperties.startRun);
             //Only runs if form control is true
@@ -107,7 +107,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 }
             }
         }
-    }*/
+    }
 
     onChange(inputE) {
         if (this.startRun != null) {
@@ -124,7 +124,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         }
     }
 
-    async load() {
+    /*async load() {
         //Create the body for starting the workflow
 
         const submitBody = {
@@ -157,7 +157,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         const jsonSubmit = await submit.json();
         console.log(jsonSubmit);
         this.onChange(jsonSubmit.id);
-    }
+    }*/
 
     constructor() {
         super();
