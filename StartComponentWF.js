@@ -82,11 +82,9 @@ export class EmbeddedWorkflowStart extends LitElement {
                     type: 'string',
                     title: 'User Name'
                 },
-                //Used to set a return value that is accessible by the Nintex form
                 value: {
                     type: 'string',
                     title: 'Value',
-                    isValueField: true,
                 }
             },
             //Triggers an event that the Nintex form can handle
@@ -109,7 +107,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         }
     }
 
-    onChange(inputE) {
+    /*onChange(inputE) {
         if (this.startRun != null) {
             this.value = inputE;
             console.log(this.value);
@@ -122,9 +120,9 @@ export class EmbeddedWorkflowStart extends LitElement {
             const event = new CustomEvent('ntx-value-change', args);
             this.dispatchEvent(event);
         }
-    }
+    }*/
 
-    /*async load() {
+    async load() {
         //Create the body for starting the workflow
 
         const submitBody = {
@@ -156,8 +154,9 @@ export class EmbeddedWorkflowStart extends LitElement {
         //Wait for api response
         const jsonSubmit = await submit.json();
         console.log(jsonSubmit);
-        this.onChange(jsonSubmit.id);
-    }*/
+        this.value = jsonSubmit.id.toString();
+        //this.onChange(jsonSubmit.id.toString());
+    }
 
     constructor() {
         super();
