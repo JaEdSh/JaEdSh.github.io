@@ -74,9 +74,13 @@ export class EmbeddedWorkflowStart extends LitElement {
                     type: 'number',
                     title: 'Organization ID'
                 },
-                userPronouns: {
+                userPronounsOrig: {
                     type: 'string',
                     title: 'User Pronouns'
+                },
+                userPronounsNew: {
+                    type: 'string',
+                    title: 'New Pronouns'
                 },
                 userName: {
                     type: 'string',
@@ -127,6 +131,7 @@ export class EmbeddedWorkflowStart extends LitElement {
 
         const submitBody = {
             "startData": {
+                "se_pronounsnew": this.userPronounsNew,
                 "se_departmentidsoriginal": this.departmentIDsOriginal,
                 "se_programidsoriginal": this.programIDsOriginal,
                 "se_pronouns1": this.userPronouns,
