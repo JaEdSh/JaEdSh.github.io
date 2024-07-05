@@ -1,13 +1,12 @@
-import {css, html, LitElement, styleMap, until} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
 export class EmbeddedWorkflowStart extends LitElement {
-    
-    
+
+
     static properties = {
-        startRun: { type: Boolean },
-        value: { type: String }
+        startRun: { type: Boolean }
     }
-    
+
     static getMetaConfig() {
         // plugin contract information
         return {
@@ -26,7 +25,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 startRun: {
                     type: 'boolean',
                     title: 'Execute Event',
-                    defaultValue: false,                    
+                    defaultValue: false,
                 },
                 nintexAPIURL: {
                     type: 'string',
@@ -91,82 +90,73 @@ export class EmbeddedWorkflowStart extends LitElement {
                 }
             },
             //Triggers an event that the Nintex form can handle
-            events: ["ntx-value-change"],
-            standardProperties: {
-                readOnly: true,
-                description: true,
-            }
+            events: ["ntx-value-change"]
+
         };
     }
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
     updated(changedProperties) {
         if (changedProperties.has('startRun')) {
-            console.log("startRun = " + changedProperties.startRun);
+            console.log("properties startRun = " + changedProperties.startRun);
             //Only runs if form control is true
-            if (this.startRun != null){
-                console.log(this.startRun);
-                if (this.startRun == true){
+            if (this.startRun != null) {
+                console.log("this run" + this.startRun);
+                if (this.startRun == true) {
                     console.log("executing");
                     this.load();
                 }
             }
         }
     }
-    
-    onChange(e) {
-        this.value = e;
-        console.log(this.value);
-        const args = {
-            bubbles: true,
-            cancelable: false,
-            composed: true,
-            detail: e,
-        };
-        const event = new CustomEvent('ntx-value-change', args);
-        this.dispatchEvent(event);
-    }
+
+    /*onChange(inputE) {
+        if (this.startRun != null) {
+            this.value = inputE;
+            console.log(this.value);
+            const args = {
+                bubbles: true,
+                cancelable: false,
+                composed: true,
+                detail: inputE,
+            };
+            const event = new CustomEvent('ntx-value-change', args);
+            this.dispatchEvent(event);
+        }
+    }*/
 
     async load() {
         //Create the body for starting the workflow
-        /*const departmentIdsOrig = [];
-        const programIDsOrig = [];
-        if (this.departmentIDsOriginal != null){departmentIdsOrig = JSON.parse(this.departmentIDsOriginal);}
-        if (this.programIDsOriginal != null){programIDsOrig = JSON.parse(this.programIDsOriginal);}
-        //const departmentIdsArray = JSON.parse(this.departmentIDsOriginal);
-        //const programIDsOriginal = JSON.parse(this.programIDsOriginal);
-        console.log(this.departmentIDsOriginal);
-        console.log(this.programIDsOrig);
-        console.log(departmentIdsOrig);
-        console.log(programIDsOrig);*/
+
         const submitBody = {
-                "startData": {
-                    "se_departmentidsoriginal": this.departmentIDsOriginal,
-                    "se_programidsoriginal": this.programIDsOriginal,
-                    "se_pronouns1": this.userPronouns,
-                    "se_departmentids1": this.departmentIDsNew,
-                    "se_programids12": this.programIDsNew,
-                    "se_useremail": this.userEmail,
-                    "se_usertype": this.userType,
-                    "se_phonenumber": this.phoneNumber,
-                    "se_usertitle": this.userTitle,
-                    "se_organizationid": this.organizationID,
-                    "se_username": this.userName
-                }
+            "startData": {
+                "se_departmentidsoriginal": this.departmentIDsOriginal,
+                "se_programidsoriginal": this.programIDsOriginal,
+                "se_pronouns1": this.userPronouns,
+                "se_departmentids1": this.departmentIDsNew,
+                "se_programids12": this.programIDsNew,
+                "se_useremail": this.userEmail,
+                "se_usertype": this.userType,
+                "se_phonenumber": this.phoneNumber,
+                "se_usertitle": this.userTitle,
+                "se_organizationid": this.organizationID,
+                "se_username": this.userName
+            }
         }
 
         console.log(submitBody);
         //Start the workflow
-            const submit = await fetch( this.nintexAPIURL + this.workflowID + '/instances?token=' + this.nintexAPIKey,
+        const submit = await fetch(this.nintexAPIURL + this.workflowID + '/instances?token=' + this.nintexAPIKey,
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(submitBody)});
-            //Wait for api response
-            const jsonSubmit = await submit.json();
-            console.log(jsonSubmit); 
-            this.onChange(jsonSubmit.id);
+                body: JSON.stringify(submitBody)
+            });
+        //Wait for api response
+        const jsonSubmit = await submit.json();
+        console.log(jsonSubmit);
+        this.onChange(jsonSubmit.id);
     }
 
     constructor() {
@@ -174,7 +164,7 @@ export class EmbeddedWorkflowStart extends LitElement {
     }
 
 
-    
+
     // Render the UI as a function of component state
     render() {
         return html`<mwc-textfield id="textfield">${this.value}</mwc-textfield>`
