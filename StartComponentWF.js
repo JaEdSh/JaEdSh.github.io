@@ -5,7 +5,7 @@ export class EmbeddedWorkflowStart extends LitElement {
 
     static properties = {
         startRun: { type: Boolean },
-        value: {type: String}
+        value: { type: String }
     }
 
     static getMetaConfig() {
