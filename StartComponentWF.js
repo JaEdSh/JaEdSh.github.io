@@ -3,9 +3,9 @@ import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net
 export class EmbeddedWorkflowStart extends LitElement {
 
 
-    static properties = {
+    /*static properties = {
         startRun: { type: Boolean }
-    }
+    }*/
 
     static getMetaConfig() {
         // plugin contract information
@@ -109,7 +109,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         }
     }
 
-    /*onChange(inputE) {
+    onChange(inputE) {
         if (this.startRun != null) {
             this.value = inputE;
             console.log(this.value);
@@ -122,7 +122,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             const event = new CustomEvent('ntx-value-change', args);
             this.dispatchEvent(event);
         }
-    }*/
+    }
 
     async load() {
         //Create the body for starting the workflow
