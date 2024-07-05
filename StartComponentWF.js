@@ -4,7 +4,8 @@ export class EmbeddedWorkflowStart extends LitElement {
 
 
     static properties = {
-        startRun: { type: Boolean }
+        startRun: { type: Boolean },
+        value: {type: String}
     }
 
     static getMetaConfig() {
@@ -89,10 +90,11 @@ export class EmbeddedWorkflowStart extends LitElement {
                 value: {
                     type: 'string',
                     title: 'Value',
+                    isValueField: true
                 }
             },
             //Triggers an event that the Nintex form can handle
-            //events: ["ntx-value-change"]
+            events: ["ntx-value-change"]
 
         };
     }
@@ -111,7 +113,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         }
     }
 
-    /*onChange(inputE) {
+    onChange(inputE) {
         if (this.startRun != null) {
             this.value = inputE;
             console.log(this.value);
@@ -124,7 +126,7 @@ export class EmbeddedWorkflowStart extends LitElement {
             const event = new CustomEvent('ntx-value-change', args);
             this.dispatchEvent(event);
         }
-    }*/
+    }
 
     async load() {
         //Create the body for starting the workflow
@@ -159,8 +161,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         //Wait for api response
         const jsonSubmit = await submit.json();
         console.log(jsonSubmit);
-        this.value = jsonSubmit.id.toString();
-        //this.onChange(jsonSubmit.id.toString());
+        this.onChange(jsonSubmit.id);
     }
 
     constructor() {
