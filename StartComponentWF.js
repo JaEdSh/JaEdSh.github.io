@@ -88,7 +88,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 }
             },
             //Triggers an event that the Nintex form can handle
-            events: ["ntx-value-change"]
+            //events: ["ntx-value-change"]
 
         };
     }
