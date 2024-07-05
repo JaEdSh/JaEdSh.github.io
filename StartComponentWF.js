@@ -101,10 +101,10 @@ export class EmbeddedWorkflowStart extends LitElement {
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
     updated(changedProperties) {
         if (changedProperties.has('startRun')) {
-            console.log("properties startRun = " + changedProperties.startRun);
+            console.log(changedProperties);
             //Only runs if form control is true
             if (this.startRun != null) {
-                console.log("this run" + this.startRun);
+                console.log("this run " + this.startRun);
                 if (this.startRun == true) {
                     console.log("executing");
                     this.load();
