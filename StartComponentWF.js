@@ -3,9 +3,9 @@ import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net
 export class EmbeddedWorkflowStart extends LitElement {
 
 
-    /*static properties = {
+    static properties = {
         startRun: { type: Boolean }
-    }*/
+    }
 
     static getMetaConfig() {
         // plugin contract information
@@ -95,7 +95,7 @@ export class EmbeddedWorkflowStart extends LitElement {
         };
     }
     //Only start the API request if the startRun (Execute Event on the form) has been set to true
-    updated(changedProperties) {
+    /*updated(changedProperties) {
         if (changedProperties.has('startRun')) {
             console.log("properties startRun = " + changedProperties.startRun);
             //Only runs if form control is true
@@ -107,7 +107,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 }
             }
         }
-    }
+    }*/
 
     onChange(inputE) {
         if (this.startRun != null) {
