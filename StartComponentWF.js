@@ -136,7 +136,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 "se_pronounsnew": this.userPronounsNew,
                 "se_departmentidsoriginal": this.departmentIDsOriginal,
                 "se_programidsoriginal": this.programIDsOriginal,
-                "se_pronouns1": this.userPronouns,
+                "se_pronouns1": this.userPronounsOrig,
                 "se_departmentids1": this.departmentIDsNew,
                 "se_programids12": this.programIDsNew,
                 "se_useremail": this.userEmail,
