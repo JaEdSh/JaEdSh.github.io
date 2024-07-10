@@ -87,6 +87,10 @@ export class EmbeddedWorkflowStart extends LitElement {
                     type: 'string',
                     title: 'User Name'
                 },
+                prefix: {
+                    type: 'string',
+                    title: "User Prefix"
+                },
                 value: {
                     type: 'string',
                     title: 'Value',
@@ -133,6 +137,7 @@ export class EmbeddedWorkflowStart extends LitElement {
 
         const submitBody = {
             "startData": {
+                "se_prefix": this.prefix,
                 "se_pronounsnew": this.userPronounsNew,
                 "se_departmentidsoriginal": this.departmentIDsOriginal,
                 "se_programidsoriginal": this.programIDsOriginal,
