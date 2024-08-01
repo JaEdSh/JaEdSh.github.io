@@ -200,7 +200,7 @@ export class EmbeddedWorkflowStart extends LitElement {
                 "se_pillarhealth": this.pillarHealth,
                 "se_pillarcollege": this.pillarCollege,
                 "se_pillaradultdev": this.pillarAdultdev,
-                "se_programid": this.se_programid,
+                "se_programid": this.programID,
                 "se_prefix": this.prefix,
                 "se_pronounsnew": this.userPronounsNew,
                 "se_departmentidsoriginal": this.departmentIDsOriginal,
