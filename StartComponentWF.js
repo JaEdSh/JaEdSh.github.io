@@ -3,9 +3,11 @@ import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net
 export class EmbeddedWorkflowStart extends LitElement {
 
 
-    static properties = {
-        startRun: { type: Boolean },
-        value: { type: String }
+    static get properties() {
+        return {
+            startRun: { type: Boolean },
+            value: { type: String }
+          };
     }
 
     static getMetaConfig() {
@@ -134,6 +136,10 @@ export class EmbeddedWorkflowStart extends LitElement {
                 programType: {
                     type: 'string',
                     title: 'Program Type'
+                },
+                programID: {
+                    type: 'string',
+                    title: 'Program ID'
                 },
                 value: {
                     type: 'string',
