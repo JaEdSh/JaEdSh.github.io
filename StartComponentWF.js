@@ -55,14 +55,6 @@ export class EmbeddedWorkflowStart extends LitElement {
                     type: 'string',
                     title: 'User Title'
                 },
-                programIDsOriginal: {
-                    type: 'string',
-                    title: 'Program IDs original'
-                },
-                programIDsNew: {
-                    type: 'string',
-                    title: 'Program IDs edited'
-                },
                 departmentIDsOriginal: {
                     type: 'string',
                     title: 'Department IDs original'
@@ -90,6 +82,54 @@ export class EmbeddedWorkflowStart extends LitElement {
                 prefix: {
                     type: 'string',
                     title: "User Prefix"
+                },
+                tier: {
+                    type: 'string',
+                    title: 'Program Tier'
+                },
+                originalTier: {
+                    type: 'string',
+                    title: 'Currently saved tier'
+                },
+                schedule: {
+                    type: 'string',
+                    title: 'Program Schedule'
+                },
+                originalSchedule: {
+                    type: 'string',
+                    title: 'Currently saved schedule'
+                },
+                outcomeSel: {
+                    type: 'boolean',
+                    title: 'Outcome SEL'
+                },
+                outcomeTransitions: {
+                    type: 'boolean',
+                    title: 'Outcome Transitions'
+                },
+                outcomeNumeracy: {
+                    type: 'boolean',
+                    title: 'Outcome Numeracy'
+                },
+                outcomeLiteracy: {
+                    type: 'boolean',
+                    title: 'Outcome Literacy'
+                },
+                pillarHealth: {
+                    type: 'boolean',
+                    title: 'Pillar Health and wellness'
+                },
+                pillarCollege: {
+                    type: 'boolean',
+                    title: 'Pillar College'
+                },
+                pillarAdultdev: {
+                    type: 'boolean',
+                    title: 'Pillar Adult Development'
+                },
+                pillarFamily: {
+                    type: 'boolean',
+                    title: 'Pillar Family Engagement'
                 },
                 value: {
                     type: 'string',
@@ -137,13 +177,24 @@ export class EmbeddedWorkflowStart extends LitElement {
 
         const submitBody = {
             "startData": {
+                "se_pillarfamily": this.pillarFamily,
+                "se_tier": this.tier,
+                "se_originaltier": this.originalTier,
+                "se_schedule": this.schedule,
+                "se_originalschedule": this.originalSchedule,
+                "se_outcomesel": this.outcomeSel,
+                "se_outcometransitions": this.outcomeTransitions,
+                "se_outcomenumeracy": this.outcomeNumeracy,
+                "se_outcomeliteracy": this.outcomeLiteracy,
+                "se_pillarhealth": this.pillarHealth,
+                "se_pillarcollege": this.pillarCollege,
+                "se_pillaradultdev": this.pillarAdultdev,
+                "se_programid": this.se_programid,
                 "se_prefix": this.prefix,
                 "se_pronounsnew": this.userPronounsNew,
                 "se_departmentidsoriginal": this.departmentIDsOriginal,
-                "se_programidsoriginal": this.programIDsOriginal,
                 "se_pronouns1": this.userPronounsOrig,
                 "se_departmentids1": this.departmentIDsNew,
-                "se_programids12": this.programIDsNew,
                 "se_useremail": this.userEmail,
                 "se_usertype": this.userType,
                 "se_phonenumber": this.phoneNumber,
