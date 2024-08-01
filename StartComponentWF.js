@@ -131,6 +131,10 @@ export class EmbeddedWorkflowStart extends LitElement {
                     type: 'boolean',
                     title: 'Pillar Family Engagement'
                 },
+                programType: {
+                    type: 'string',
+                    title: 'Program Type'
+                },
                 value: {
                     type: 'string',
                     title: 'Value',
@@ -177,6 +181,7 @@ export class EmbeddedWorkflowStart extends LitElement {
 
         const submitBody = {
             "startData": {
+                "se_programtype": this.programType,
                 "se_pillarfamily": this.pillarFamily,
                 "se_tier": this.tier,
                 "se_originaltier": this.originalTier,
