@@ -12,9 +12,9 @@ export class ExtendedDatePicker extends LitElement {
     static getMetaConfig() {
         // plugin contract information
         return {
-            controlName: 'Start Workflow',
+            controlName: 'Extended Datepicker',
             fallbackDisableSubmit: false,
-            description: 'Connects to the Nintex API to start a workflow',
+            description: 'A datepicker that allows the user to enter a value',
             iconUrl: "one-line-text",
             groupName: 'Custom Controls',
             version: '1.4',
