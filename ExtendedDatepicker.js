@@ -53,7 +53,7 @@ export class ExtendedDatePicker extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`<mwc-textfield id="datefield" type="date" onChange="onChange(${this.value})">${this.value}</mwc-textfield>`
+        return html`<input id="datefield" class="nx-theme-input-1" type="date" onChange="onChange(${this.value})">${this.value}</input>`
     }
 }
 
