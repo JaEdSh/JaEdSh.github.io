@@ -1,8 +1,5 @@
 import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
-import { customElement, property } from 'lit/decorators.js';
 import '@material/mwc-textfield/mwc-textfield.js';
-import { TextField } from '@material/mwc-textfield/mwc-textfield.js';
-import { styles } from './material-textfield.styles';
 
 export class ExtendedDatePicker extends LitElement {
 
@@ -69,7 +66,7 @@ export class ExtendedDatePicker extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`<input id="datefield" class="nx-theme-input-1" type="date" onChange="onChange(${this.value})">${this.value}</input>`
+        return html`<input id="datefield" class="nx-datetime-control" type="date" onChange="onChange(${this.value})">${this.value}</input>`
     }
 }
 
