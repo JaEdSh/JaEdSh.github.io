@@ -1,8 +1,12 @@
 import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+import { customElement, property } from 'lit/decorators.js';
+import '@material/mwc-textfield/mwc-textfield.js';
+import { TextField } from '@material/mwc-textfield/mwc-textfield.js';
+import { styles } from './material-textfield.styles';
 
 export class ExtendedDatePicker extends LitElement {
 
-
+    
     static get properties() {
         return {
             value: { type: String }
@@ -31,9 +35,14 @@ export class ExtendedDatePicker extends LitElement {
                 }
             },
             //Triggers an event that the Nintex form can handle
-            events: ["ntx-value-change"]
-
-        };
+            events: ["ntx-value-change"],
+            standardProperties: {
+                fieldLabel: true,
+                description: true,
+                defaultValue: true,
+                readOnly: true
+            }
+        }
     }
 
     onChange(inputE) {
@@ -49,6 +58,13 @@ export class ExtendedDatePicker extends LitElement {
             const event = new CustomEvent('ntx-value-change', args);
             this.dispatchEvent(event);
         }
+    }
+
+    constructor() {
+        if (this.default != "" && this.default != null){
+            this.value = this.default
+        }
+        super();
     }
 
     // Render the UI as a function of component state
