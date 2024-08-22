@@ -1,5 +1,4 @@
 import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
-import '@material/mwc-textfield/mwc-textfield.js';
 
 export class ExtendedDatePicker extends LitElement {
 
