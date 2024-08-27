@@ -24,14 +24,8 @@ export class ExtendedDatePicker extends LitElement {
                     type: 'string',
                     title: 'Default Value'
                 },
-                value: {
-                    type: 'string',
-                    title: 'Value',
-                    isValueField: true
-                }
             },
             //Triggers an event that the Nintex form can handle
-            events: ["ntx-value-change"],
             standardProperties: {
                 fieldLabel: true,
                 description: true,
@@ -58,7 +52,7 @@ export class ExtendedDatePicker extends LitElement {
 
     constructor() {
         if (this.default != "" && this.default != null){
-            this.value = this.default
+            this.value = this.default;
         }
         super();
     }
