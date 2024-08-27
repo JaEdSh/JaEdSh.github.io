@@ -51,10 +51,10 @@ export class ExtendedDatePicker extends LitElement {
     }
 
     constructor() {
+        super();
         if (this.default != "" && this.default != null){
             this.value = this.default;
         }
-        super();
     }
 
     // Render the UI as a function of component state
