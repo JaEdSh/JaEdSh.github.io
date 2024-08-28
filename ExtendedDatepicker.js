@@ -16,7 +16,8 @@ export class ExtendedDatePicker extends LitElement {
             properties: {
                 value: {
                     type: 'string',
-                    title: 'Default Value'
+                    title: 'Default Value',
+                    defaultValue: '2024-08-08'
                 }
             },
             //Standard nwc control properties
