@@ -36,7 +36,7 @@ export class ExtendedDatePicker extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`<input id="datefield" class="nx-datetime-control" type="date" readonly="${this.readOnly}" value="${this.defaultValue}"></input>`
+        return html`<input id="datefield" class="nx-datetime-control" type="date" readonly="${this.readOnly}" value="${this.defaultValue}">${this.value}</input>`
     }
 }
 
