@@ -49,7 +49,7 @@ export class ExtendedDatePicker extends LitElement {
         }
     }
 
-    onChange(inputE) {
+    /*onChange(inputE) {
         if (this.startRun != null) {
             this.value = inputE;
             console.log(this.value);
@@ -62,7 +62,7 @@ export class ExtendedDatePicker extends LitElement {
             const event = new CustomEvent('ntx-value-change', args);
             this.dispatchEvent(event);
         }
-    }
+    }*/
 
     constructor() {
         super();
@@ -71,12 +71,7 @@ export class ExtendedDatePicker extends LitElement {
     // Render the UI as a function of component state
     render() {
         return html`<input id="datefield" class="nx-datetime-control" type="date" 
-        .label="${this.fieldLabel}"
-        .helper="${this.description}"
-        ?outlined="${this.outlined}"
-        ?disabled="${this.readOnly}"
-        value="${this.default}"
-        @change="${() => this.onChange(this.value)}">${this.value}</input>`
+        value="${this.default}">${this.value}</input>`
     }
 }
 
