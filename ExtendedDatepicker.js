@@ -17,9 +17,10 @@ export class ExtendedDatePicker extends LitElement {
                 value: {
                     type: 'string',
                     title: 'Default Value',
-                    defaultValue: '2024-08-08'
+                    isValueField: true,
                 }
             },
+            events: ["ntx-value-change"],
             //Standard nwc control properties
             standardProperties: {
                 fieldLabel: true,
@@ -30,6 +31,19 @@ export class ExtendedDatePicker extends LitElement {
         }
     }
 
+    onChange(e) {
+        this.value = e;
+        if (this.EnableLog == true) { console.log(this.value); }
+        const args = {
+            bubbles: true,
+            cancelable: false,
+            composed: true,
+            detail: e,
+        };
+        const event = new CustomEvent('ntx-value-change', args);
+        this.dispatchEvent(event);
+    }
+
     constructor() {
         super();
     }
@@ -37,10 +51,10 @@ export class ExtendedDatePicker extends LitElement {
     // Render the UI as a function of component state
     render() {
         if (this.readOnly){
-            return html`<input id="datefield" class="nx-datetime-control" type="date" readonly value="${this.defaultValue}">${this.value}</input>`;
+            return html`<input id="datefield" class="nx-datetime-control" type="date" readonly value="${this.defaultValue}"></input>`;
         }
         else {
-            return html`<input id="datefield" class="nx-datetime-control" type="date" value="${this.defaultValue}">${this.value}</input>`;
+            return html`<input id="datefield" class="nx-datetime-control" type="date" value="${this.defaultValue}"></input>`;
         }
     }
 }
