@@ -1,22 +1,8 @@
 import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
-import { customElement, property } from 'lit/decorators.js';
-import '@material/mwc-textfield/mwc-textfield.js';
-import { TextField } from '@material/mwc-textfield/mwc-textfield.js';
-import { styles } from './material-textfield.styles';
 
-@customElement('form-plugin-datepicker')
 export class ExtendedDatePicker extends LitElement {
 
     static styles = styles;
-
-    /*@property()
-    label!;
-    @property()
-    description!;
-    @property({ type: Boolean })
-    outlined;
-    @property({ type: Boolean })
-    readOnly;*/
 
     static getMetaConfig() {
         // plugin contract information
@@ -29,17 +15,13 @@ export class ExtendedDatePicker extends LitElement {
             version: '1.4',
             //This holds all the parameters that are entered into the control.
             properties: {
-                /*outlined: {
-                    type: 'boolean',
-                    title: 'Show Outline',
-                  },*/
                 value: {
                     type: 'string',
                     title: 'Default Value',
                     defaultValue: '08/27/2024'
                 },
             },
-            //Triggers an event that the Nintex form can handle
+            //Standard nwc control properties
             standardProperties: {
                 fieldLabel: true,
                 description: true,
