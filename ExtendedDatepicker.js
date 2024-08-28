@@ -1,7 +1,7 @@
 import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 import { customElement, property } from 'lit/decorators.js';
 import '@material/mwc-textfield/mwc-textfield.js';
-
+import { TextField } from '@material/mwc-textfield/mwc-textfield.js';
 import { styles } from './material-textfield.styles';
 
 @customElement('form-plugin-datepicker')
@@ -9,14 +9,14 @@ export class ExtendedDatePicker extends LitElement {
 
     static styles = styles;
 
-    @property()
+    /*@property()
     label!;
     @property()
     description!;
     @property({ type: Boolean })
     outlined;
     @property({ type: Boolean })
-    readOnly;
+    readOnly;*/
 
     static getMetaConfig() {
         // plugin contract information
