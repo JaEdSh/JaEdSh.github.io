@@ -29,10 +29,10 @@ export class ExtendedDatePicker extends LitElement {
             version: '1.4',
             //This holds all the parameters that are entered into the control.
             properties: {
-                outlined: {
+                /*outlined: {
                     type: 'boolean',
                     title: 'Show Outline',
-                  },
+                  },*/
                 value: {
                     type: 'string',
                     title: 'Default Value',
@@ -70,8 +70,7 @@ export class ExtendedDatePicker extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`<input id="datefield" class="nx-datetime-control" type="date" 
-        value="${this.default}">${this.value}</input>`
+        return html`<input id="datefield" class="nx-datetime-control" type="date" readonly="${this.readOnly}" value="${this.defaultValue}">${this.value}</input>`
     }
 }
 
