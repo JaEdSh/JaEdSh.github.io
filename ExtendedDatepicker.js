@@ -2,7 +2,6 @@ import { css, html, LitElement, styleMap, until } from 'https://cdn.jsdelivr.net
 
 export class ExtendedDatePicker extends LitElement {
 
-    static styles = styles;
 
     static getMetaConfig() {
         // plugin contract information
