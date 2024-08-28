@@ -16,8 +16,7 @@ export class ExtendedDatePicker extends LitElement {
             properties: {
                 value: {
                     type: 'string',
-                    title: 'Default Value',
-                    defaultValue: '08/27/2024'
+                    title: 'Default Value'
                 }
             },
             //Standard nwc control properties
@@ -36,7 +35,12 @@ export class ExtendedDatePicker extends LitElement {
 
     // Render the UI as a function of component state
     render() {
-        return html`<input id="datefield" class="nx-datetime-control" type="date" readonly="${this.readOnly}" value="${this.defaultValue}">${this.value}</input>`
+        if (this.readOnly){
+            return html`<input id="datefield" class="nx-datetime-control" type="date" readonly value="${this.defaultValue}">${this.value}</input>`;
+        }
+        else {
+            return html`<input id="datefield" class="nx-datetime-control" type="date" value="${this.defaultValue}">${this.value}</input>`;
+        }
     }
 }
 
