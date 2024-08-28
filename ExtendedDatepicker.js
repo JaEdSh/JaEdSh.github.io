@@ -32,8 +32,7 @@ export class ExtendedDatePicker extends LitElement {
     }
 
     onChange(e) {
-        this.value = e;
-        if (this.EnableLog == true) { console.log(this.value); }
+        this.value = e.target.value;
         const args = {
             bubbles: true,
             cancelable: false,
@@ -51,10 +50,10 @@ export class ExtendedDatePicker extends LitElement {
     // Render the UI as a function of component state
     render() {
         if (this.readOnly){
-            return html`<input id="datefield" class="nx-datetime-control" type="date" readonly value="${this.defaultValue}">${this.value}</input>`;
+            return html`<input id="datefield" class="nx-datetime-control" type="date" readonly value="${this.defaultValue}" onChange="onChange(event;)/>`;
         }
         else {
-            return html`<input id="datefield" class="nx-datetime-control" type="date" value="${this.defaultValue}">${this.value}</input>`;
+            return html`<input id="datefield" class="nx-datetime-control" type="date" value="${this.defaultValue}"onChange="onChange(event;)/>`;
         }
     }
 }
